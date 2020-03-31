@@ -30,14 +30,34 @@ class ArrayManipulations implements StringManipulationService{
     // arraySplit(myString : string) : Array<number> method is used to find the prime number in the mixed array.
     //  First identify the   numbers in the array, typecast it and then check whether the number is a prime number or not.
     arraySplit(myString: string): number[] {
-        let number
+        const temp = myString.split(",");
+        const primeArray = [];
+        let k=0;
+        for(var i=0;i<temp.length;i++){
+            let y = +temp[i];
+            for(var j=2;j<y;j++){
+                if(y%j===0)
+                    continue;
+                else{
+                    primeArray[k] = y;
+                    k++; }
+            }
+        }
+        return primeArray;
         
     }
+
+
     arraySort(myArray: any): string[] {
-        
+        myArray.sort();
+        return myArray;
     }
     arrayReplace(myArray: any): Number[] {
-        
+        for(var i=0;i<myArray.length;i++){
+            if(myArray[i]%3===0)
+                myArray[i] = 5;
+        }
+        return myArray;
     }
     
 }
